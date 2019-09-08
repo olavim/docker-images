@@ -1,7 +1,7 @@
-FROM olavim/ci-alpine-docker:1.0.0
+FROM olavim/ci-alpine-docker:1.1.0
 
 # Install sqitch
-RUN apk add --no-cache postgresql-dev bash nodejs xz \
+RUN apk add --no-cache postgresql-client postgresql-dev nodejs \
 	&& cpanm App::Sqitch DBD::Pg -n \
 	&& mkdir -p /usr/local/lib
 

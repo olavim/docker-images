@@ -1,5 +1,8 @@
 FROM scottw/alpine-perl:5.26.3
 
+ENV TZ UTC
+RUN apk add --no-cache bash xz tzdata
+
 # Install Docker
 RUN set -ex \
 	&& export DOCKER_VERSION=$(curl --silent --fail --retry 3 https://download.docker.com/linux/static/stable/x86_64/ | grep -o -e 'docker-[.0-9]*\.tgz' | sort -r | head -n 1) \
